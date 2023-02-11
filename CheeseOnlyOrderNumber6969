@@ -1,0 +1,28 @@
+local crown = Players.robloxvclololv2
+local enab = true
+local HT = {}
+
+local function BHT(name, num, func)
+    if HT[name] == nil then
+        HT[name] = RS.Heartbeat:Connect(func)
+    end
+end
+
+local function UBHT(name)
+    if HT[name] then
+        HT[name]:Disconnect()
+        HT[name] = nil
+    end
+end
+
+if enab then
+    BHT(
+        "namefunc",
+        1,
+        function()
+            crown.Character.Humanoid.DisplayName = "[👑]" .. crown.DisplayName
+        end
+    )
+else
+    UBHT("namefunc")
+end
